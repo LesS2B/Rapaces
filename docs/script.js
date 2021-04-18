@@ -4,7 +4,7 @@ var timer = 0;
 var memeDisplayed = false;
 
 window.onload = () => {
-    console.log("getting memes");
+    setMessage("getting memes");
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", "https://raw.githubusercontent.com/LesS2B/LesS2B/main/test/archive.json", false);
     rawFile.onreadystatechange = () => {
@@ -32,7 +32,7 @@ window.onload = () => {
 
 
 function setup(data) {
-    console.log("loading memes");
+    setMessage("loading memes ...");
     let list = document.getElementById("list-container");
     data.meme.forEach(el => {
         let index = memes.length;
@@ -41,7 +41,7 @@ function setup(data) {
         img.src = "images/"+el.path;
         img.onload = () => {
             memes[index] = {title: el.title, image: img};
-            console.log("loaded "+index+" out of "+memes.length);
+            setMessage("loading memes ... "+index+" out of "+(memes.length-1));
             let container = document.createElement("div");
             let pic = document.createElement("img");
             let title = document.createElement("h2");
@@ -58,12 +58,17 @@ function setup(data) {
                 setPreviewPic(1);
                 memeDisplayed = true;
             }
+            if (index == memes.length-1)
+                setTimeout(() => {
+                    setMessage("");
+                }, 2000);
         }
     });
 } 
 
 function setPreviewPic(i) {
-    index = i;
+    if (i >= memes.length) index = 0;
+    else index = i;
     let content = document.getElementById("content");
     content.style.transform = "scale(0.9)";
     content.style.opacity = "0";
@@ -83,4 +88,8 @@ function nextPreview() {
         setPreviewPic(index+1);
         timer = 4000;
     }
+}
+
+function setMessage(msg) {
+    document.getElementById("message-box").innerHTML = msg;
 }
