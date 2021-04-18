@@ -21,11 +21,15 @@ div#page {
     flex-direction: column;
     justify-content: center;
     height: 100%;
+    width: 100%;
 }
 .center-x {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
-    margin: 0px auto;
     text-align: center;
+    margin: 0px auto;
 }
 
 header {
@@ -36,6 +40,17 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+p#message-box {
+    position: fixed;
+    top: 16px;
+    left: 60px;
+    height: 20px;
+    margin: 0px; padding: 0px;
+    font-size: 15px;
+    color: var(--color-white);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
@@ -63,7 +78,7 @@ div#menu-container {
     width: 0vw;
     height: 100%;
     transition: width 200ms ease;
-    background-color: var(--color-white);
+    background-color: var(--color-black);
 }
 
 div#preview-container {
@@ -84,8 +99,9 @@ div#list-container {
 div.list-content-container {
     margin: 6px auto;
     width: 12vw;
-    height: fit-content;
-    background-color: var(--color-black);
+    padding-bottom: 4px;
+    height: min-content;
+    background-color: var(--color-white);
     border-radius: 6px;
     user-select: none;
     cursor: pointer;
@@ -95,15 +111,15 @@ h2.list-content-title {
     margin: 0px auto;
     padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--color-white);
+    color: var(--color-black);
     font-size: 16px;
     text-align: center;
 }
 
 img.list-content-pic {
-    background-color: var(--color-black);
+    background-color: var(--color-white);
     border-radius: 4px;
-    height: min-content;
+    height: auto;
     width: calc(100% - 8px);
     margin: 4px;
 }
@@ -132,4 +148,14 @@ p#title-content {
     width: 100%;
     margin: 5px auto;
     padding: 0px;
+}
+
+div#pub-container {
+    position: fixed;
+    bottom: 4px; right: 4px;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
