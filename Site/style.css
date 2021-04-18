@@ -12,7 +12,7 @@ body {
 }
 
 div#page {
-    height: calc( 100vh - 50px ); width: 100%;
+    height: calc( 100vh - 100px ); width: 100%;
     display: inline-flex;
 }
 
@@ -21,7 +21,6 @@ div#page {
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    width: 100%;
 }
 .center-x {
     display: flex;
@@ -151,24 +150,10 @@ p#title-content {
 }
 
 div#pub-container {
-    position: fixed;
-    bottom: 4px; right: 4px;
-    height: min-content;
-    width: fit-content;
+    height: 50px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-}
-
-div#pub-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-span.spacer {
-    margin-left: 10px;
-    height: fit-content;
-    width: min-content;
-    display: block;
+    background-color: var(--color-primary);
 }
