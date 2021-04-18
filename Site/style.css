@@ -153,9 +153,22 @@ p#title-content {
 div#pub-container {
     position: fixed;
     bottom: 4px; right: 4px;
-    height: fit-content;
+    height: min-content;
     width: fit-content;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
+}
+
+div#pub-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+span.spacer {
+    margin-left: 10px;
+    height: fit-content;
+    width: min-content;
+    display: block;
 }
