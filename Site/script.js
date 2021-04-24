@@ -18,7 +18,7 @@ window.onload = () => {
     let menuIcon = document.getElementById("menu-icon-content");
     let menuContainer = document.getElementById("menu-container");
     menuIcon.onclick = () => {
-        if (menuIcon.style.transform == "rotate(90deg)") {
+        if (menuIcon.style.transform == "rotate(-90deg)") {
             menuIcon.style.transform = "rotate(0deg)";
             menuContainer.style.width = "0vw";
         }
