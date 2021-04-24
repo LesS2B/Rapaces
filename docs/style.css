@@ -1,3 +1,8 @@
+@keyframes spawn-in {
+    0% {opacity: 0; transform: scale(1, 0.9);}
+    100% {opacity: 1; transform: scale(1, 1);}
+}
+
 :root {
     --color-primary: #16A085;
     --color-black: #2C3E50;
@@ -104,6 +109,7 @@ div.list-content-container {
     border-radius: 6px;
     user-select: none;
     cursor: pointer;
+    animation: spawn-in 200ms ease;
 }
 
 h2.list-content-title {
