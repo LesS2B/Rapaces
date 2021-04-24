@@ -2,6 +2,7 @@ var index = 0;
 var memes = [];
 var timer = 0;
 var memeDisplayed = false;
+var nbLoaded = 0;
 
 window.onload = () => {
     setMessage("getting memes");
@@ -22,7 +23,7 @@ window.onload = () => {
             menuContainer.style.width = "0vw";
         }
         else {
-            menuIcon.style.transform = "rotate(90deg)";
+            menuIcon.style.transform = "rotate(-90deg)";
             menuContainer.style.width = "40vw";
         }
     }
@@ -41,7 +42,7 @@ function setup(data) {
         img.src = "images/"+el.path;
         img.onload = () => {
             memes[index] = {title: el.title, image: img};
-            setMessage("loading memes ... "+index+" out of "+(memes.length-1));
+            setMessage("loading memes ... "+(++nbLoaded)+" out of "+(memes.length-1));
             let container = document.createElement("div");
             let pic = document.createElement("img");
             let title = document.createElement("h2");
@@ -85,7 +86,9 @@ function setPreviewPic(i) {
 function nextPreview() {
     timer -= 200;
     if (timer <= 0) {
-        setPreviewPic(index+1);
+        let newIndex = index+1;
+        while (memes[newIndex] == null) newIndex++;
+        setPreviewPic(newIndex);
         timer = 4000;
     }
 }
